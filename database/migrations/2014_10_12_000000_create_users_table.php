@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('post_code')->nullable()->unique();
+            $table->unsignedBigInteger("role_id");
             $table->rememberToken();
             $table->timestamps();
         });
