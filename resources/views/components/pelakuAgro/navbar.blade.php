@@ -28,7 +28,7 @@
     </div>
 
     {{-- Dropdown --}}
-    <div class="absolute right-0 top-20 hidden shadow-md">
+    <div class="absolute bg-white right-0 top-20 hidden shadow-md">
         <div class="w-[350px] py-5 px-10 flex flex-col">
             <div class="flex gap-10">
                 @if (Auth::user()->avatar)
