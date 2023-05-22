@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Mitra;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +39,7 @@ class AuthController extends Controller
                 "role_id" => 2,
             ]);
             DB::commit();
-            return redirect()->route("pelaku-agro.login.index")->with("success", "Registrasi anda berhasil");
+            return redirect()->route("mitra.login.index")->with("success", "Registrasi anda berhasil");
         } catch (Exception $e) {
             DB::rollBack();
             return redirect()->back()->with("error", $e->getMessage());
@@ -57,8 +58,19 @@ class AuthController extends Controller
                 return redirect()->back()->with("error", "Maaf akun ini bukan merupakan akun mitra");
             }
             $request->session()->regenerate();
-            return "Sudah Login";
+            return redirect()->route("mitra.index")->with("success", "Login berhasil");
         }
         return redirect()->back()->with("error", "Akun atau password belum terdaftar");
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect("/");
     }
 }

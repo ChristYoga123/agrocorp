@@ -5,6 +5,7 @@ namespace App\Http\Controllers\PelakuAgro;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -57,8 +58,19 @@ class AuthController extends Controller
                 return redirect()->back()->with("error", "Maaf akun ini bukan merupakan akun pelaku agro");
             }
             $request->session()->regenerate();
-            return "Sudah Login";
+            return redirect()->route("pelaku-agro.index")->with("success", "Login berhasil");
         }
         return redirect()->back()->with("error", "Akun atau password belum terdaftar");
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect("/");
     }
 }

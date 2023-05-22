@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('post_code')->nullable()->unique();
             $table->unsignedBigInteger("role_id");
+            $table->string("avatar")->nullable();
+            $table->string("business_name")->nullable();
+            $table->longText("business_description")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
