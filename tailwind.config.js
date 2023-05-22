@@ -6,7 +6,10 @@ module.exports = {
         "./resources/**/*.vue",
     ],
     theme: {
+        fontFamily: {
+            poppins: ["Poppins"],
+        },
         extend: {},
     },
-    plugins: [],
+    plugins: [require("daisyui")],
 };
