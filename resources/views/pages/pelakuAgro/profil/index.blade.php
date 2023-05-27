@@ -42,7 +42,7 @@
     
                     <div class="flex flex-col gap-3 mt-5">
                         <label class="font-medium text-[#159895]">Alamat</label>
-                        <input type="number" name="address" class="input w-full border-[#159895]" value="{{ $user->address }}">
+                        <input type="text" name="address" class="input w-full border-[#159895]" value="{{ $user->address }}">
                     </div>
     
                     <div class="flex flex-col gap-3 mt-5">

@@ -12,7 +12,7 @@
             <div class="input-field flex gap-40 pt-5 pl-10">
                 <div class="edit-avatar mt-9">
                     @if ($user->avatar)
-                        <img src="{{ $user->avatar }}" width="200px">
+                        <img src="/{{ $user->avatar }}" width="200px">
                     @endif
                     <input type="file" class="file-input border-[#159895]" name="avatar">
                 </div>
@@ -42,7 +42,7 @@
     
                     <div class="flex flex-col gap-3 mt-5">
                         <label class="font-medium text-[#159895]">Alamat</label>
-                        <input type="number" name="address" class="input w-full border-[#159895]" value="{{ $user->address }}">
+                        <input type="text" name="address" class="input w-full border-[#159895]" value="{{ $user->address }}">
                     </div>
     
                     <div class="flex flex-col gap-3 mt-5">
