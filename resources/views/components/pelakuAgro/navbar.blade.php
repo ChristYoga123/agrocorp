@@ -15,7 +15,7 @@
                 <a href="">Forum</a>
             </li>
             <li>
-                <a href="">Kemitraan</a>
+                <a href="{{ route("pelaku-agro.kemitraan.index") }}">Kemitraan</a>
             </li>
             <li>
                 <a href="">Pencatatan</a>
@@ -48,23 +48,16 @@
                 </li>
 
                 <li>
-                    <a href="" class="flex gap-5">
-                        <img src="{{ asset("assets/img/question.png") }}" alt="" width="40px">
-                        <p class="text-xl font-semibold my-auto">Status Pengajuan</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="" class="flex gap-5">
-                        <img src="{{ asset("assets/img/shop.png") }}" alt="" width="40px">
-                        <p class="text-xl font-semibold my-auto">Mitra</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="" class="flex gap-5">
+                    <a href="{{ route("pelaku-agro.pembayaran.index") }}" class="flex gap-5">
                         <img src="{{ asset("assets/img/dollar.png") }}" alt="">
                         <p class="text-xl font-semibold my-auto">Pembayaran</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="flex gap-5">
+                        <img src="{{ asset("assets/img/User.png") }}" alt="">
+                        <p class="text-xl font-semibold my-auto">Riwayat Transaksi</p>
                     </a>
                 </li>
             </ul>

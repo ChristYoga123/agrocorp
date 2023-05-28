@@ -9,6 +9,8 @@ use App\Http\Controllers\Mitra\StatusPengajuanController;
 use App\Http\Controllers\PelakuAgro\HomeController as PelakuAgroHomeController;
 use App\Http\Controllers\PelakuAgro\AuthController as PelakuAgroAuthController;
 use App\Http\Controllers\PelakuAgro\FormController as PelakuAgroFormController;
+use App\Http\Controllers\PelakuAgro\KemitraanController;
+use App\Http\Controllers\PelakuAgro\PembayaranController as PelakuAgroPembayaranController;
 use App\Http\Controllers\PelakuAgro\ProfileController as PelakuAgroProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +46,20 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     // Form
     Route::get("/permintaan", [PelakuAgroFormController::class, "index"])->name("form.index");
     Route::get("/permintaan/{mitra_id}", [PelakuAgroFormController::class, "show"])->name("form.show");
+
+    // Pembayaran
+    Route::get("/pembayaran", [PelakuAgroPembayaranController::class, "index"])->name("pembayaran.index");
+    Route::get("/pembayaran/{user}", [PelakuAgroPembayaranController::class, "show"])->name("pembayaran.show");
+    Route::post("/pembayaran/{user}", [PelakuAgroPembayaranController::class, "store"])->name("pembayaran.store");
+
+    // Kemitraan
+    Route::get("kemitraan", function () {
+        return view("pages.pelakuAgro.kemitraan.index");
+    })->name("kemitraan.index");
+    Route::get("kemitraan/jumlah-mitra", [KemitraanController::class, "index_jumlah_mitra"])->name("jumlah_mitra.index");
+    Route::get("kemitraan/jumlah-mitra/{user}", [KemitraanController::class, "show_jumlah_mitra"])->name("jumlah_mitra.show");
+    Route::get("kemitraan/surat-bermitra", [KemitraanController::class, "index_surat_bermitra"])->name("surat_bermitra.index");
+    Route::post("kemitraan/surat-bermitra/{user}", [KemitraanController::class, "store"])->name("surat_bermitra.store");
 });
 
 // Mitra
