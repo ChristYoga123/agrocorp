@@ -3,6 +3,7 @@
 use App\Http\Controllers\Mitra\AuthController as MitraAuthController;
 use App\Http\Controllers\Mitra\FormController as MitraFormController;
 use App\Http\Controllers\Mitra\HomeController as MitraHomeController;
+use App\Http\Controllers\Mitra\PembayaranController;
 use App\Http\Controllers\Mitra\ProfileController as MitraProfileController;
 use App\Http\Controllers\Mitra\StatusPengajuanController;
 use App\Http\Controllers\PelakuAgro\HomeController as PelakuAgroHomeController;
@@ -68,4 +69,10 @@ Route::prefix("mitra")->name("mitra.")->group(function () {
     // Status Pembayaran
     Route::get("status-pengajuan", [StatusPengajuanController::class, "index"])->name("status_pengajuan.index");
     Route::get("status-pengajuan/{user}", [StatusPengajuanController::class, "show"])->name("status_pengajuan.show");
+
+    // Pembayaran
+    Route::get("pembayaran", [PembayaranController::class, "index"])->name("pembayaran.index");
+    Route::get("pembayaran/{user}", [PembayaranController::class, "show"])->name("pembayaran.show");
+    Route::get("pembayaran/{user}/bukti", [PembayaranController::class, "index_pembayaran"])->name("pembayaran.bayar.index");
+    Route::post("pembayaran/{user}/bukti", [PembayaranController::class, "store"])->name("pembayaran.bayar.store");
 });

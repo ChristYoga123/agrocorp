@@ -59,7 +59,7 @@
                 </li>
 
                 <li>
-                    <a href="" class="flex gap-5">
+                    <a href="{{ route("mitra.pembayaran.index") }}" class="flex gap-5">
                         <img src="{{ asset("assets/img/dollar.png") }}" alt="">
                         <p class="text-xl font-semibold my-auto">Pembayaran</p>
                     </a>

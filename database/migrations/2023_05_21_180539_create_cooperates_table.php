@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string("pelaku_agro_mou")->nullable();
             $table->enum("status_cooperate", ["Belum Disetujui", "Disetujui", "Ditolak"])->default("Belum Disetujui");
             $table->string("transaction_proof")->nullable();
-            $table->enum("transaction_status", ["Belum Disetujui", "Disetujui", "Ditolak"])->default("Belum Disetujui");
+            $table->enum("transaction_status", ["Belum Lunas", "Disetujui", "Ditolak"])->default("Belum Lunas");
             $table->timestamps();
         });
     }
