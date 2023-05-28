@@ -27,7 +27,9 @@ class ProfileController extends Controller
             "address" => "required",
             "business_name" => "required",
             "business_description" => "required",
-            "avatar" => "mimes:png,jpeg,jpg|image"
+            "avatar" => "mimes:png,jpeg,jpg|image",
+            "rekening_number" => "required|numeric",
+            "product_price" => "required|integer"
         ]);
         DB::beginTransaction();
         try {
@@ -41,6 +43,8 @@ class ProfileController extends Controller
                     "business_name" => $request->business_name,
                     "business_description" => $request->business_description,
                     "avatar" => $avatar,
+                    "rekening_number" => $request->rekening_number,
+                    "product_price" => $request->product_price
                 ]);
             } else {
                 $user->update([
@@ -50,6 +54,8 @@ class ProfileController extends Controller
                     "address" => $request->address,
                     "business_name" => $request->business_name,
                     "business_description" => $request->business_description,
+                    "rekening_number" => $request->rekening_number,
+                    "product_price" => $request->product_price
                 ]);
             }
             DB::commit();

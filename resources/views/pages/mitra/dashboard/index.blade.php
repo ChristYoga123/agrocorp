@@ -6,7 +6,7 @@
 <div class="pelaku-agro-list flex justify-center gap-3 mt-5">
     @foreach ($pelaku_agros as $pelaku_agro)
         <div class="card lg:card-side bg-base-100 shadow-xl">
-            <figure><img src="{{ $pelaku_agro->avatar }}" alt="Album"/></figure>
+            <img src="{{ $pelaku_agro->avatar }}" alt="Album" width="300px"/>
             <div class="card-body">
                 <h2 class="card-title">{{ $pelaku_agro->business_name }}</h2>
                 <div class="mt-10 mb-5 flex flex-col gap-5">

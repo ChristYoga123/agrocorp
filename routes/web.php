@@ -4,6 +4,7 @@ use App\Http\Controllers\Mitra\AuthController as MitraAuthController;
 use App\Http\Controllers\Mitra\FormController as MitraFormController;
 use App\Http\Controllers\Mitra\HomeController as MitraHomeController;
 use App\Http\Controllers\Mitra\ProfileController as MitraProfileController;
+use App\Http\Controllers\Mitra\StatusPengajuanController;
 use App\Http\Controllers\PelakuAgro\HomeController as PelakuAgroHomeController;
 use App\Http\Controllers\PelakuAgro\AuthController as PelakuAgroAuthController;
 use App\Http\Controllers\PelakuAgro\FormController as PelakuAgroFormController;
@@ -63,4 +64,8 @@ Route::prefix("mitra")->name("mitra.")->group(function () {
     // Form
     Route::get("form/{user}", [MitraFormController::class, "index"])->name("form.index");
     Route::post("form/{pelakuAgro}", [MitraFormController::class, "store"])->name("form.store");
+
+    // Status Pembayaran
+    Route::get("status-pengajuan", [StatusPengajuanController::class, "index"])->name("status_pengajuan.index");
+    Route::get("status-pengajuan/{user}", [StatusPengajuanController::class, "show"])->name("status_pengajuan.show");
 });

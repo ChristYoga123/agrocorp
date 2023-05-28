@@ -1,7 +1,7 @@
 @extends('layouts.user.app')
 
 @section('content')
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="input-field flex gap-40 pt-5 pl-10 justify-center">
         <div class="field-1">
@@ -50,8 +50,13 @@
             </div>
     
             <div class="flex flex-col gap-3 mt-5">
-                <label class="font-medium text-[#159895]">Kebutuhan</label>
+                <label class="font-medium text-[#159895]">Permintaan Supply</label>
                 <textarea name="cooperate_needs" class="textarea textarea-bordered border-[#159895]"></textarea>
+            </div>
+
+            <div class="flex flex-col gap-3 mt-5">
+                <label class="font-medium text-[#159895]">Upload MOU yang sudah di TTD</label>
+                <input type="file" name="mitra_mou" class="input w-full border-[#159895]">
             </div>
         </div>
     </div>

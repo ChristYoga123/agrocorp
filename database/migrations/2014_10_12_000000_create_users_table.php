@@ -25,6 +25,9 @@ return new class extends Migration
             $table->string("avatar")->nullable();
             $table->string("business_name")->nullable();
             $table->longText("business_description")->nullable();
+            $table->string("rekening_number")->nullable();
+            $table->bigInteger("product_price")->nullable();
+            $table->boolean("is_premium")->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

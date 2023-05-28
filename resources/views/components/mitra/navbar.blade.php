@@ -29,7 +29,7 @@
         <div class="w-[350px] py-5 px-10 flex flex-col">
             <div class="flex gap-10">
                 @if (Auth::user()->avatar)
-                    <img src="{{ Auth::user()->avatar }}" class="rounded-full" width="100px">
+                    <img src="/{{ Auth::user()->avatar }}" class="rounded-full" width="100px">
                 @else
                     <img src="{{ asset("assets/img/User.png") }}" class="rounded-full" width="100px">
                 @endif  
@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="" class="flex gap-5">
+                    <a href="{{ route("mitra.status_pengajuan.index") }}" class="flex gap-5">
                         <img src="{{ asset("assets/img/question.png") }}" alt="" width="40px">
                         <p class="text-xl font-semibold my-auto">Status Pengajuan</p>
                     </a>

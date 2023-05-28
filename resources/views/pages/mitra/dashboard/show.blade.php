@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-full h-[100vh] flex justify-center items-center">
     <div class="flex gap-5">
-        <img src="{{ $pelaku_agro->avatar }}" alt="">
+        <img src="/{{ $pelaku_agro->avatar }}" alt="" width="300px" height="400px">
         <div class="detail flex flex-col gap-5">
             <h1 class="text-xl font-semibold">{{ $pelaku_agro->business_name }}</h1>
             <div class="detail-profile flex flex-col gap-3">
@@ -18,7 +18,10 @@
                 </div>
             </div>
             <p>{{ $pelaku_agro->business_description }}</p>
-            <a href="{{ route("mitra.form.index", $pelaku_agro->id) }}"><button class="btn bg-[#159895] border-0 text-white">Ajukan Kerjasama</button></a>
+            <div class="flex gap-5">
+                <a href="{{ route("mitra.form.index", $pelaku_agro->id) }}"><button class="btn bg-[#159895] border-0 text-white">Ajukan Kerjasama</button></a>
+                <a href="{{ route("mitra.form.index", $pelaku_agro->id) }}"><button class="btn bg-[#159895] border-0 text-white">Download MOU</button></a>
+            </div>
         </div>
     </div>
 </div>

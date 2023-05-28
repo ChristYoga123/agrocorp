@@ -18,6 +18,6 @@ class Cooperate extends Model
 
     public function PelakuAgro()
     {
-        return $this->belongsTo(PelakuAgro::class, "pelaku_agro_id");
+        return $this->belongsTo(User::class, "pelaku_agro_id");
     }
 }

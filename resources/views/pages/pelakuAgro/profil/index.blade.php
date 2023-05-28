@@ -32,6 +32,11 @@
                         <label class="font-medium text-[#159895]">Nama Usaha</label>
                         <input type="text" name="business_name" class="input w-full border-[#159895]" value="{{ $user->business_name }}">
                     </div>
+
+                    <div class="flex flex-col gap-3 mt-5">
+                        <label class="font-medium text-[#159895]">Nomor rekening</label>
+                        <input type="number" name="rekening_number" class="input w-full border-[#159895]" value="{{ $user->rekening_number }}">
+                    </div>
                 </div>
     
                 <div class="field-2">
@@ -48,6 +53,11 @@
                     <div class="flex flex-col gap-3 mt-5">
                         <label class="font-medium text-[#159895]">Deskripsi Usaha</label>
                         <textarea name="business_description" class="textarea textarea-bordered border-[#159895]">{{ $user->business_description }}</textarea>
+                    </div>
+
+                    <div class="flex flex-col gap-3 mt-5">
+                        <label class="font-medium text-[#159895]">Harga per kg</label>
+                        <input type="number" name="product_price" class="input w-full border-[#159895]" value="{{ $user->product_price }}">
                     </div>
                 </div>
             </div>

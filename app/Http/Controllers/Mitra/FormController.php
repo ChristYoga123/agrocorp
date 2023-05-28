@@ -30,7 +30,8 @@ class FormController extends Controller
             "business_description" => "required",
             "phone" => "required|numeric",
             "post_code" => "required|numeric|digits:5",
-            "cooperate_needs" => "required"
+            "cooperate_needs" => "required",
+            "mitra_mou" => "required|file",
         ]);
 
         DB::beginTransaction();
@@ -40,11 +41,13 @@ class FormController extends Controller
                 "nik" => $request->nik,
                 "post_code" => $request->post_code
             ]);
+            $mitra_mou = $request->file("mitra_mou")->store("kerja-sama", "public");
             Cooperate::create([
                 "mitra_id" => $logged_user->id,
                 "pelaku_agro_id" => $pelakuAgro->id,
                 "cooperate_reason" => $request->cooperate_reason,
-                "cooperate_needs" => $request->cooperate_needs
+                "cooperate_needs" => $request->cooperate_needs,
+                "mitra_mou" => $mitra_mou
             ]);
 
             DB::commit();

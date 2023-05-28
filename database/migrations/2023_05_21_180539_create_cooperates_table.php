@@ -19,6 +19,11 @@ return new class extends Migration
             $table->foreign("pelaku_agro_id")->references("id")->on("users");
             $table->longText("cooperate_reason");
             $table->longText("cooperate_needs");
+            $table->string("mitra_mou")->nullable();
+            $table->string("pelaku_agro_mou")->nullable();
+            $table->enum("status_cooperate", ["Belum Disetujui", "Disetujui", "Ditolak"])->default("Belum Disetujui");
+            $table->string("transaction_proof")->nullable();
+            $table->enum("transaction_status", ["Belum Disetujui", "Disetujui", "Ditolak"])->default("Belum Disetujui");
             $table->timestamps();
         });
     }
