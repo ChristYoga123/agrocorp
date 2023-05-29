@@ -12,6 +12,7 @@ use App\Http\Controllers\PelakuAgro\FormController as PelakuAgroFormController;
 use App\Http\Controllers\PelakuAgro\KemitraanController;
 use App\Http\Controllers\PelakuAgro\PembayaranController as PelakuAgroPembayaranController;
 use App\Http\Controllers\PelakuAgro\ProfileController as PelakuAgroProfileController;
+use App\Http\Controllers\PelakuAgro\RiwayatTransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,10 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     Route::get("kemitraan/surat-bermitra", [KemitraanController::class, "index_surat_bermitra"])->name("surat_bermitra.index");
     Route::post("kemitraan/surat-bermitra/{user}", [KemitraanController::class, "store"])->name("surat_bermitra.store");
     Route::get("kemitraan/surat_bermitra/{user}", [KemitraanController::class, "show_surat_bermitra"])->name("surat_bermitra.show");
+
+    // Riwayat Transaksi
+    Route::get("riwayat-transaksi", [RiwayatTransaksiController::class, "index"])->name("riwayat-transaksi.index");
+    Route::get("riwayat-transaksi/{user}", [RiwayatTransaksiController::class, "show"])->name("riwayat-transaksi.show");
 });
 
 // Mitra

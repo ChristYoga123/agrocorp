@@ -55,7 +55,7 @@
                 </li>
 
                 <li>
-                    <a href="" class="flex gap-5">
+                    <a href="{{ route("pelaku-agro.riwayat-transaksi.index") }}" class="flex gap-5">
                         <img src="{{ asset("assets/img/User.png") }}" alt="">
                         <p class="text-xl font-semibold my-auto">Riwayat Transaksi</p>
                     </a>
