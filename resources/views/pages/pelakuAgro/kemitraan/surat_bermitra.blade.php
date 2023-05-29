@@ -24,7 +24,7 @@
                         <th>{{ $i++ }}</th>
                         <td>{{ $kerja_sama->Mitra->name }}</td>
                         <td>
-                            <a href="#">
+                            <a href="{{ route("pelaku-agro.surat_bermitra.show", $kerja_sama->Mitra->id) }}">
                                 <button class="btn bg-[#159895]">Lihat</button>
                             </a>
                         </td>

@@ -60,6 +60,7 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     Route::get("kemitraan/jumlah-mitra/{user}", [KemitraanController::class, "show_jumlah_mitra"])->name("jumlah_mitra.show");
     Route::get("kemitraan/surat-bermitra", [KemitraanController::class, "index_surat_bermitra"])->name("surat_bermitra.index");
     Route::post("kemitraan/surat-bermitra/{user}", [KemitraanController::class, "store"])->name("surat_bermitra.store");
+    Route::get("kemitraan/surat_bermitra/{user}", [KemitraanController::class, "show_surat_bermitra"])->name("surat_bermitra.show");
 });
 
 // Mitra

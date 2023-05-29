@@ -33,6 +33,13 @@ class KemitraanController extends Controller
         ]);
     }
 
+    public function show_surat_bermitra(User $user)
+    {
+        return view("pages.pelakuAgro.kemitraan.show_surat_bermitra")->with([
+            "user" => Cooperate::with("Mitra")->wherePelakuAgroId(Auth::user()->id)->whereMitraId($user->id)->first()
+        ]);
+    }
+
     public function store(Request $request, User $user)
     {
         $request->validate([
