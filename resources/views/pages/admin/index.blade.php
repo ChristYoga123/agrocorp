@@ -2,8 +2,9 @@
 
 @section('content')
         <nav class="fixed z-40 w-64 h-screen top-0 left-0 bg-[#159895]">
-            <div class=" p-4">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-12 mr-3" alt="">
+            <div class="flex p-4 mr-2">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-12 mr-6" alt="">
+                <span class="text-white font-medium text-lg mr-4">Yoga Wibisono</span>
             </div>
             <div class="border-2 mb-4"></div>
             <ul class="space-y-2 font-medium">
