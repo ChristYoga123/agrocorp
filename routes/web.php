@@ -63,4 +63,11 @@ Route::prefix("mitra")->name("mitra.")->group(function () {
     // Form
     Route::get("form/{user}", [MitraFormController::class, "index"])->name("form.index");
     Route::post("form/{pelakuAgro}", [MitraFormController::class, "store"])->name("form.store");
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('pages.admin.index');
+    });
 });
