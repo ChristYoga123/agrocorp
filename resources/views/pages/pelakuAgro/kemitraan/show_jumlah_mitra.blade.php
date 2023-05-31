@@ -31,7 +31,7 @@
             
             <div class="flex flex-col gap-3 mt-5">
                 <strong>NIK</strong>
-                <strong>C{{ $user->Mitra->nik }} / Kg</strong>
+                <strong>{{ $user->Mitra->nik }} / Kg</strong>
             </div>
 
             <div class="flex flex-col gap-3 mt-5">

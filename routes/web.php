@@ -11,8 +11,10 @@ use App\Http\Controllers\PelakuAgro\AuthController as PelakuAgroAuthController;
 use App\Http\Controllers\PelakuAgro\FormController as PelakuAgroFormController;
 use App\Http\Controllers\PelakuAgro\KemitraanController;
 use App\Http\Controllers\PelakuAgro\PembayaranController as PelakuAgroPembayaranController;
+use App\Http\Controllers\PelakuAgro\PencatatanController;
 use App\Http\Controllers\PelakuAgro\ProfileController as PelakuAgroProfileController;
 use App\Http\Controllers\PelakuAgro\RiwayatTransaksiController;
+use App\Models\Pelaporan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,6 +68,14 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     // Riwayat Transaksi
     Route::get("riwayat-transaksi", [RiwayatTransaksiController::class, "index"])->name("riwayat-transaksi.index");
     Route::get("riwayat-transaksi/{user}", [RiwayatTransaksiController::class, "show"])->name("riwayat-transaksi.show");
+
+    // Pencatatan
+    Route::get("pencatatan", [PencatatanController::class, "index"])->name("pencatatan.index");
+    Route::get("pencatatan/pelaporan", [PencatatanController::class, "index_pelaporan"])->name("pelaporan.index");
+    Route::get("pencatatan/pelaporan/tambah", [PencatatanController::class, "create_pelaporan"])->name("pelaporan.create");
+    Route::post("pencatatan/pelaporan", [PencatatanController::class, "store_pelaporan"])->name("pelaporan.store");
+    Route::get("pencatatan/pelaporan/{pelaporan}", [PencatatanController::class, "show_pelaporan"])->name("pelaporan.show");
+    Route::get("pencatatan/perhitungan", [PencatatanController::class, "index_perhitungan"])->name("perhitungan.index");
 });
 
 // Mitra

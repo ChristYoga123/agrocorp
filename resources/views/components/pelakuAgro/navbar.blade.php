@@ -18,7 +18,7 @@
                 <a href="{{ route("pelaku-agro.kemitraan.index") }}">Kemitraan</a>
             </li>
             <li>
-                <a href="">Pencatatan</a>
+                <a href="{{ route("pelaku-agro.pencatatan.index") }}">Pencatatan</a>
             </li>
         </ul>
     </div>
