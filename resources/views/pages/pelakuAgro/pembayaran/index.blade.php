@@ -24,7 +24,7 @@
                         <td>{{ $kerja_sama->Mitra->name }}</td>
                         <td>
                             <div class="badge border-0 {{ $kerja_sama->transaction_status == "Belum Lunas" ? "bg-red-500" : ($kerja_sama->transaction_status == "Ditolak" ? "bg-red-500" : ($kerja_sama->transaction_status == "Disetujui" ? "bg-green-500" : "")) }}">
-                                <p>{{ $kerja_sama->transaction_status == "Disetujui" ? "Lunas" : "" }}</p>
+                                <p>{{ $kerja_sama->transaction_status == "Disetujui" ? "Lunas" : $kerja_sama->transaction_status }}</p>
                             </div>
                         </td>
                         <td>

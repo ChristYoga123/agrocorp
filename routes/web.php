@@ -1,14 +1,26 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ForumController as AdminForumController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\MitraController;
+use App\Http\Controllers\Admin\PelakuAgroController;
+use App\Http\Controllers\Admin\PengajuanController;
+use App\Http\Controllers\Admin\PremiumController as AdminPremiumController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\RiwayatTransaksiController as AdminRiwayatTransaksiController;
 use App\Http\Controllers\Mitra\AuthController as MitraAuthController;
 use App\Http\Controllers\Mitra\FormController as MitraFormController;
+use App\Http\Controllers\Mitra\ForumController as MitraForumController;
 use App\Http\Controllers\Mitra\HomeController as MitraHomeController;
 use App\Http\Controllers\Mitra\PembayaranController;
+use App\Http\Controllers\Mitra\PremiumController;
 use App\Http\Controllers\Mitra\ProfileController as MitraProfileController;
 use App\Http\Controllers\Mitra\StatusPengajuanController;
 use App\Http\Controllers\PelakuAgro\HomeController as PelakuAgroHomeController;
 use App\Http\Controllers\PelakuAgro\AuthController as PelakuAgroAuthController;
 use App\Http\Controllers\PelakuAgro\FormController as PelakuAgroFormController;
+use App\Http\Controllers\PelakuAgro\ForumController;
 use App\Http\Controllers\PelakuAgro\KemitraanController;
 use App\Http\Controllers\PelakuAgro\PembayaranController as PelakuAgroPembayaranController;
 use App\Http\Controllers\PelakuAgro\PencatatanController;
@@ -76,6 +88,10 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     Route::post("pencatatan/pelaporan", [PencatatanController::class, "store_pelaporan"])->name("pelaporan.store");
     Route::get("pencatatan/pelaporan/{pelaporan}", [PencatatanController::class, "show_pelaporan"])->name("pelaporan.show");
     Route::get("pencatatan/perhitungan", [PencatatanController::class, "index_perhitungan"])->name("perhitungan.index");
+
+    // Forum
+    Route::resource("forum", ForumController::class);
+    Route::post("forum/comment/{forum}", [ForumController::class, "store_comment"])->name("forum.comment.store");
 });
 
 // Mitra
@@ -107,4 +123,46 @@ Route::prefix("mitra")->name("mitra.")->group(function () {
     Route::get("pembayaran/{user}", [PembayaranController::class, "show"])->name("pembayaran.show");
     Route::get("pembayaran/{user}/bukti", [PembayaranController::class, "index_pembayaran"])->name("pembayaran.bayar.index");
     Route::post("pembayaran/{user}/bukti", [PembayaranController::class, "store"])->name("pembayaran.bayar.store");
+
+    // Forum
+    Route::resource("forum", MitraForumController::class);
+    Route::post("forum/comment/{forum}", [MitraForumController::class, "store_comment"])->name("forum.comment.store");
+
+    // Premium
+    Route::get("premium/permintaan", [PremiumController::class, "index"])->name("premium.permintaan.index");
+    Route::get("premium/permintaan/bayar", [PremiumController::class, "index_bayar"])->name("premium.permintaan.bayar.index");
+    Route::post("premium/permintaan/bayar", [PremiumController::class, "store"])->name("premium.permintaan.bayar.store");
+});
+// Admin
+Route::prefix("admin")->name('admin.')->group(function () {
+    Route::get("login", [AuthController::class, "login_index"])->name("login.index");
+    Route::post("login", [AuthController::class, "login"])->name("login");
+    Route::post("logout", [AuthController::class, "logout"])->name("logout");
+
+    // Dashboard
+    Route::get("/", [HomeController::class, "index"])->name("index");
+
+    // Profile
+    Route::get("profil", [ProfileController::class, "index"])->name("profile.index");
+    Route::put("profil/{user}", [ProfileController::class, "update"])->name("profile.update");
+
+    // Mitra
+    Route::get("mitra", [MitraController::class, "index"])->name("mitra.index");
+
+    // Pelaku Agro
+    Route::get("pelaku-agro", [PelakuAgroController::class, "index"])->name("pelakuAgro.index");
+
+    // Pengajuan
+    Route::get("pengajuan", [PengajuanController::class, "index"])->name("pengajuan.index");
+
+    // Forum
+    Route::get("forum", [AdminForumController::class, "index"])->name("forum.index");
+
+    // Riwayat Transaksi
+    Route::get("riwayat-transaksi", [AdminRiwayatTransaksiController::class, "index"])->name("riwayat.index");
+
+    // Premium
+    Route::get("premium", [AdminPremiumController::class, "index"])->name("premium.index");
+    Route::get("premium/{premiumTransaction}", [AdminPremiumController::class, "show"])->name("premium.show");
+    Route::post("premium/{user}", [AdminPremiumController::class, "update"])->name("premium.update");
 });

@@ -24,8 +24,19 @@
         </div>
 
         <div class="field-2">
-            <div class="w-[500px] h-[300px] bg-[#159895]"></div>
+            <div class="w-[500px] h-[300px] bg-[#159895] flex justify-center items-center text-white">
+                <h1 class="text-lg font-medium">
+                    @if ($start_production && $end_production)
+                        <p class="text-lg font-semibold">Hasil</p>
+                        <p class="mt-5">Terdapat Peningkatan sebanyak {{ $end_production->end_production - $start_production->end_production }}</p>
+                    @endif
+                </h1>
+            </div>
         </div>
     </div>
+
+</div>
+<div class="flex justify-center items-center">
+    <button class="btn bg-[#159895]">Hitung</button>
 </div>
 @endsection

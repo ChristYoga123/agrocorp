@@ -42,10 +42,12 @@ class PencatatanController extends Controller
         ]);
     }
 
-    public function index_perhitungan()
+    public function index_perhitungan(Request $request)
     {
         return view("pages.pelakuAgro.pencatatan.index_perhitungan")->with([
-            "pelaporans" => Pelaporan::whereUserId(Auth::user()->id)->get()
+            "pelaporans" => Pelaporan::whereUserId(Auth::user()->id)->get(),
+            "start_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->start_production)->first(),
+            "end_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->end_production)->first(),
         ]);
     }
 }

@@ -22,6 +22,9 @@
                 <img src="{{ asset("assets/img/Logo.png") }}" width="200px" class="mx-auto">
                 <p class="text-center font-medium">Aplikasi untuk mencari mitra <br> dalam dunia agroindustri di Indonesia</p>
                 <p class="text-center font-medium">Login Sebagai</p>
+                <div class="flex justify-center">
+                    <a href="{{ route("admin.login.index") }}"><button class="btn bg-[#159895] border-0">Admin</button></a>
+                </div>
                 <div class="flex justify-center gap-[5rem]">
                     <a href="{{ route("pelaku-agro.login.index") }}"><button class="btn bg-[#159895] border-0">Pelaku Agro</button></a>
                     <a href="{{ route("mitra.login.index") }}"><button class="btn bg-[#159895] border-0 w-[120px]">Mitra</button></a>

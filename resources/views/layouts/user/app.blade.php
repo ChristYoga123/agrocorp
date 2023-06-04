@@ -16,8 +16,9 @@
     @vite("resources/css/app.css")
 </head>
 <body class="font-poppins">
-
-    @if (Auth::user()->role_id == 2)
+    @if(Auth::user()->role_id == 1)
+        @include('components.admin.navbar')
+    @elseif (Auth::user()->role_id == 2)
         @include('components.mitra.navbar')
     @elseif(Auth::user()->role_id == 3)
         @include('components.pelakuAgro.navbar')

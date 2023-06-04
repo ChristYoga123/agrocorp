@@ -12,7 +12,7 @@
                 <a href="">Permintaan</a>
             </li>
             <li>
-                <a href="">Forum</a>
+                <a href="{{ route("pelaku-agro.forum.index") }}">Forum</a>
             </li>
             <li>
                 <a href="{{ route("pelaku-agro.kemitraan.index") }}">Kemitraan</a>

@@ -9,10 +9,10 @@
                 <a href="{{ route("mitra.index") }}">Home</a>
             </li>
             <li>
-                <a href="">Permintaan</a>
+                <a href="{{ route("mitra.premium.permintaan.index") }}">Permintaan</a>
             </li>
             <li>
-                <a href="">Forum</a>
+                <a href="{{ route("mitra.forum.index") }}">Forum</a>
             </li>
             <li>
                 <a href="">Kemitraan</a>
