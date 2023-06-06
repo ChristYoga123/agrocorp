@@ -39,4 +39,21 @@ class PremiumController extends Controller
 
         return redirect()->back()->with('success', "Pembayaran berhasil dikirim");
     }
+
+    public function create()
+    {
+        return view("pages.mitra.permintaan.create_premium");
+    }
+
+    public function store_premium(Request $request)
+    {
+        PremiumCooperate::create([
+            "mitra_id" => Auth::user()->id,
+            "product_name" => $request->product_name,
+            "quantity" => $request->quantity,
+            "price_request" => $request->price_request
+        ]);
+
+        return redirect()->route("mitra.premium.permintaan.index")->with("success", "Data berhasil disimpan");
+    }
 }

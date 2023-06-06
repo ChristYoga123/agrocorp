@@ -6,7 +6,7 @@
             <div class="w-[600px] h-[300px]">
                 @foreach ($forums as $forum)
                     <div class="card card-side bg-base-100 shadow-xl mt-5">
-                        <figure><img src="/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie"/></figure>
+                        <img src="/storage/{{ $forum->forum_image }}" alt="Movie" width="200px"/>
                         <div class="card-body">
                             <h2 class="card-title">{{ $forum->title }}</h2>
                             <p>{{ substr($forum->forum_text, 0, 20) }}</p>

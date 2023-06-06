@@ -25,7 +25,7 @@
                         <td>{{ $pengajuan->Mitra->name }}</td>
                         <td>{{ $pengajuan->cooperate_needs }}</td>
                         <td>
-                            <a href="#">
+                            <a href="{{ route("admin.pengajuan.show", $pengajuan->id) }}">
                                 <button class="btn bg-[#159895]">Lihat</button>
                             </a>
                         </td>

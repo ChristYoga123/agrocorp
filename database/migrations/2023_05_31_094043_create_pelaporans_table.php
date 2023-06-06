@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date("production_date")->default(now());
             $table->string("product_name");
             $table->integer("start_production");
-            $table->integer("end_production");
+            $table->integer("end_production")->nullable();
             $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });

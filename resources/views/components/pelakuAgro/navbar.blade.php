@@ -6,10 +6,10 @@
     <div class="nav-menu py-2">
         <ul class="flex gap-[3rem] text-[#159895] font-medium">
             <li>
-                <a href="">Home</a>
+                <a href="{{ route("pelaku-agro.index") }}">Home</a>
             </li>
             <li>
-                <a href="">Permintaan</a>
+                <a href="{{ route("pelaku-agro.premium.permintaan.index") }}">Permintaan</a>
             </li>
             <li>
                 <a href="{{ route("pelaku-agro.forum.index") }}">Forum</a>

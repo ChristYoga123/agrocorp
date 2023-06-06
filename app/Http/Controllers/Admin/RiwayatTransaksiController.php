@@ -14,4 +14,11 @@ class RiwayatTransaksiController extends Controller
             "riwayats" => Cooperate::where("transaction_proof", "!=", null)->get()
         ]);
     }
+
+    public function show(Cooperate $cooperate)
+    {
+        return view("pages.admin.riwayat-transaksi.show")->with([
+            "riwayat" => $cooperate
+        ]);
+    }
 }

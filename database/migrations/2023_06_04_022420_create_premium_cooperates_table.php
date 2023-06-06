@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('premium_cooperates', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("mitra_id");
-            $table->unsignedBigInteger("pelaku_agro_id");
+            $table->unsignedBigInteger("pelaku_agro_id")->nullable();
             $table->foreign("mitra_id")->references("id")->on("users");
             $table->foreign("pelaku_agro_id")->references("id")->on("users");
             $table->string("product_name");
             $table->integer("quantity");
             $table->bigInteger("price_request");
             $table->string("transaction_proof")->nullable();
+            $table->enum("cooperate_status", ["Belum Disetujui", "Disetujui"])->default("Belum Disetujui");
             $table->enum("transaction_status", ["Belum Lunas", "Disetujui", "Ditolak"])->default("Belum Lunas");
             $table->timestamps();
         });

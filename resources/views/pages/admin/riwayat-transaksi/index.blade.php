@@ -25,7 +25,7 @@
                         <td>{{ $riwayat->Mitra->name }}</td>
                         <td>{{ date_format($riwayat->created_at, "d/M/Y") }}</td>
                         <td>
-                            <a href="#">
+                            <a href="{{ route("admin.riwayat.show", $riwayat->id) }}">
                                 <button class="btn bg-[#159895]">Lihat</button>
                             </a>
                         </td>

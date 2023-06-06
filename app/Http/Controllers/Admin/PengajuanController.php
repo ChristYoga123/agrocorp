@@ -14,4 +14,11 @@ class PengajuanController extends Controller
             "pengajuans" => Cooperate::all()
         ]);
     }
+
+    public function show(Cooperate $cooperate)
+    {
+        return view("pages.admin.pengajuan.show")->with([
+            "pengajuan" => $cooperate
+        ]);
+    }
 }

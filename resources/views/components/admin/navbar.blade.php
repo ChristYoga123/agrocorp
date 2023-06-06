@@ -1,4 +1,4 @@
-<nav class="w-[350px] h-[105vh] bg-[#159895] absolute">
+<nav class="w-[350px] h-[105vh] bg-[#159895] absolute z-[9999999]">
     <div class="p-5 text-white">
         <div class="profile flex gap-5">
             <img src="/{{ Auth::user()->avatar }}" class="rounded-full" width="100px">

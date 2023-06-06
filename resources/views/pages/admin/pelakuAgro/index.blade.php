@@ -25,7 +25,7 @@
                         <td>{{ $pelaku_agro->name }}</td>
                         <td>{{ $pelaku_agro->business_name }}</td>
                         <td>
-                            <a href="#">
+                            <a href="{{ route("admin.pelakuAgro.show", $pelaku_agro->id) }}">
                                 <button class="btn bg-[#159895]">Lihat</button>
                             </a>
                         </td>

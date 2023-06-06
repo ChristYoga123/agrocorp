@@ -15,7 +15,7 @@
                 <a href="{{ route("mitra.forum.index") }}">Forum</a>
             </li>
             <li>
-                <a href="">Kemitraan</a>
+                <a href="{{ route("mitra.kemitraan.index") }}">Kemitraan</a>
             </li>
         </ul>
     </div>

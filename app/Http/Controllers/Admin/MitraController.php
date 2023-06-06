@@ -14,4 +14,11 @@ class MitraController extends Controller
             "mitras" => User::whereRoleId(2)->get()
         ]);
     }
+
+    public function show(User $user)
+    {
+        return view("pages.admin.mitra.show")->with([
+            "mitra" => $user
+        ]);
+    }
 }

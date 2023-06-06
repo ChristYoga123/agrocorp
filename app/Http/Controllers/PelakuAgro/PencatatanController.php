@@ -37,9 +37,17 @@ class PencatatanController extends Controller
 
     public function show_pelaporan(Pelaporan $pelaporan)
     {
-        return view("pages.pelakuAgro.pencatatan.show")->with([
+        return view("pages.pelakuAgro.pencatatan.show_pelaporan")->with([
             "pelaporan" => $pelaporan
         ]);
+    }
+
+    public function update_pelaporan(Request $request, Pelaporan $pelaporan)
+    {
+        $pelaporan->update([
+            "end_production" => $request->end_production
+        ]);
+        return redirect()->route('pelaku-agro.pelaporan.index')->with('success', "Data berhasil ditambahkan");
     }
 
     public function index_perhitungan(Request $request)

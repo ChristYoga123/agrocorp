@@ -13,7 +13,6 @@
                             <th>Nama Produk</th>
                             <th>Jumlah</th>
                             <th>Harga</th>
-                            <th>Status</th>
                             <th>Detail</th>
                         </tr>   
                         </thead>
@@ -28,13 +27,11 @@
                                 <td>{{ $premium_cooperate->product_name }}</td>
                                 <td>{{ $premium_cooperate->quantity }} Kg</td>
                                 <td>{{ $premium_cooperate->price_request }}</td>
-                                <td>{{ $premium_cooperate->cooperate_status }}</td>
                                 <td>
-                                    @if ($premium_cooperate->cooperate_status == "Belum Disetujui")
-                                        Belum ada Kerja Sama                                
-                                    @else
-                                        <button class="btn bg-[#159895]">Lihat</button>    
-                                    @endif
+                                    <form action="{{ route("pelaku-agro.premium.permintaan.bayar.update", $premium_cooperate->id) }}" method="post">
+                                        @csrf
+                                        <button class="btn" value="Diterima" name="cooperate_status">Diterima</button>
+                                    </form>
                                 <td>
                             </tr>
                         @endforeach
@@ -47,7 +44,15 @@
         <div class="w-2 h-full bg-slate-400 -ml-28"></div>
 
         <div class="button flex flex-col mt-10">
-            <a href="{{ route("mitra.premium.permintaan.create") }}"><button class="btn">Buat Permintaan</button></a>
+            <a href="{{ route("mitra.premium.permintaan.create") }}"><button class="btn">Diterima</button></a>
         </div>
     </div>
 @endsection
+
+@push('script')
+<script>
+    $("button").on("click", function () { 
+        $("form").submit();
+    });
+</script>
+@endpush
