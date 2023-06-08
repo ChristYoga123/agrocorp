@@ -36,4 +36,18 @@ class PremiumController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function show_diterima()
+    {
+        return view("pages.pelakuAgro.permintaan.diterima")->with([
+            "premium_cooperates" => PremiumCooperate::whereCooperateStatus("Disetujui")->get()
+        ]);
+    }
+
+    public function bayar_diterima(User $user)
+    {
+        return view("pages.pelakuAgro.permintaan.bayar_diterima")->with([
+            "premium_cooperate" => PremiumCooperate::wherePelakuAgroId(Auth::user()->id)->whereMitraId($user->id)->first()
+        ]);
+    }
 }

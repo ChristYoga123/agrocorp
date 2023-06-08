@@ -44,7 +44,7 @@
         <div class="w-2 h-full bg-slate-400 -ml-28"></div>
 
         <div class="button flex flex-col mt-10">
-            <a href="{{ route("mitra.premium.permintaan.create") }}"><button class="btn">Diterima</button></a>
+            <a href="{{ route("pelaku-agro.premium.permintaaan.diterima") }}"><button class="btn">Diterima</button></a>
         </div>
     </div>
 @endsection

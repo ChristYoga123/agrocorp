@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('pelaporans', function (Blueprint $table) {
             $table->id();
             $table->date("production_date")->default(now());
-            $table->string("product_name");
             $table->integer("start_production");
             $table->integer("end_production")->nullable();
             $table->foreignId("user_id")->constrained();

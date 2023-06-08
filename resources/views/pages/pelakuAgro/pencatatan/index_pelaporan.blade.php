@@ -8,7 +8,6 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Produk</th>
                     <th>Produksi Awal</th>
                     <th>Produksi Akhir</th>
                     <th>Detail</th>
@@ -22,7 +21,6 @@
                 @foreach ($pelaporans as $pelaporan)
                     <tr>
                         <th>{{ $i++ }}</th>
-                        <td>{{ $pelaporan->product_name }}</td>
                         <td>{{ $pelaporan->start_production }} Kg</td>
                         <td>{{ $pelaporan->end_production }} Kg</td>
                         <td class="flex gap-5">

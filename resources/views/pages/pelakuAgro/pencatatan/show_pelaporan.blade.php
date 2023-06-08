@@ -19,20 +19,11 @@
             </div>
 
             <div class="field-2">
-                <div class="flex flex-col gap-3">
-                    <label class="font-medium text-[#159895]">Nama Produk</label>
-                    <input type="text" name="product_name" class="input w-full border-[#159895]" value="{{ $pelaporan->product_name }}" readonly>
-                </div>
-
                 <div class="flex flex-col gap-3 mt-5">
                     <label class="font-medium text-[#159895]">Produksi Akhir</label>
                     <input type="number" name="end_production" class="input w-full border-[#159895]" value="{{ $pelaporan->end_production }}" >
                 </div>
             </div>
-        </div>
-
-        <div class="mt-28 flex justify-center">
-            <button class="btn bg-[#159895]">Simpan</button>
         </div>
     </form>
 </div>

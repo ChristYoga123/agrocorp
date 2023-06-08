@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route("mitra.profile.index") }}" class="flex gap-5">
+                <a href="{{ route("admin.permintaan.index") }}" class="flex gap-5">
                     <img src="{{ asset("assets/img/permintaan.png") }}" alt="">
                     <p class="text-lg font-semibold my-auto">Permintaan Barang</p>
                 </a>

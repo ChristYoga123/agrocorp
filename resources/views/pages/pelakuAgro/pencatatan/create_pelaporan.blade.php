@@ -8,7 +8,7 @@
             <div class="field-1">
                 <div class="flex flex-col gap-3">
                     <label class="font-medium text-[#159895]">Tanggal Produksi</label>
-                    <input type="date" name="prouction_date" class="input w-full border-[#159895]">
+                    <input type="date" name="production_date" class="input w-full border-[#159895]">
                 </div>
 
                 <div class="flex flex-col gap-3 mt-5">
@@ -18,11 +18,6 @@
             </div>
 
             <div class="field-2">
-                <div class="flex flex-col gap-3">
-                    <label class="font-medium text-[#159895]">Nama Produk</label>
-                    <input type="text" name="product_name" class="input w-full border-[#159895]">
-                </div>
-
                 <div class="flex flex-col gap-3 mt-5">
                     <label class="font-medium text-[#159895]">Produksi Akhir</label>
                     <input type="number" name="end_production" class="input w-full border-[#159895]">

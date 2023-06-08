@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MitraController;
 use App\Http\Controllers\Admin\PelakuAgroController;
 use App\Http\Controllers\Admin\PengajuanController;
+use App\Http\Controllers\Admin\PermintaanController;
 use App\Http\Controllers\Admin\PremiumController as AdminPremiumController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RiwayatTransaksiController as AdminRiwayatTransaksiController;
@@ -88,6 +89,8 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     Route::get("premium/permintaan/bayar", [PelakuAgroPremiumController::class, "index_bayar"])->name("premium.permintaan.bayar.index");
     Route::post("premium/permintaan/bayar", [PelakuAgroPremiumController::class, "store"])->name("premium.permintaan.bayar.store");
     Route::post("premium/permintaan/update/{premiumCooperate}", [PelakuAgroPremiumController::class, "update_premium"])->name("premium.permintaan.bayar.update");
+    Route::get("premium/permintaan/diterima", [PelakuAgroPremiumController::class, "show_diterima"])->name("premium.permintaaan.diterima");
+    Route::get("premium/permintaan/diterima/{user}", [PelakuAgroPremiumController::class, "bayar_diterima"])->name("premium.permintaaan.bayar.diterima");
 
     // Pencatatan
     Route::get("pencatatan", [PencatatanController::class, "index"])->name("pencatatan.index");
@@ -97,6 +100,7 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     Route::get("pencatatan/pelaporan/{pelaporan}", [PencatatanController::class, "show_pelaporan"])->name("pelaporan.show");
     ROute::put("pencatatan/pelaporan/{pelaporan}", [PencatatanController::class, "update_pelaporan"])->name("pelaporan.update");
     Route::get("pencatatan/perhitungan", [PencatatanController::class, "index_perhitungan"])->name("perhitungan.index");
+    Route::post("pencatatan/selisih", [PencatatanController::class, "selisih"])->name("perhitungan.selisih");
 
     // Forum
     Route::resource("forum", ForumController::class);
@@ -185,4 +189,7 @@ Route::prefix("admin")->name('admin.')->group(function () {
     Route::get("premium", [AdminPremiumController::class, "index"])->name("premium.index");
     Route::get("premium/{premiumTransaction}", [AdminPremiumController::class, "show"])->name("premium.show");
     Route::post("premium/{user}", [AdminPremiumController::class, "update"])->name("premium.update");
+
+    // Permintaan
+    Route::get("permintaan", [PermintaanController::class, "index"])->name("permintaan.index");
 });

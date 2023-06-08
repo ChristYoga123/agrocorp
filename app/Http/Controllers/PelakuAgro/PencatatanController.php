@@ -54,8 +54,16 @@ class PencatatanController extends Controller
     {
         return view("pages.pelakuAgro.pencatatan.index_perhitungan")->with([
             "pelaporans" => Pelaporan::whereUserId(Auth::user()->id)->get(),
-            "start_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->start_production)->first(),
-            "end_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->end_production)->first(),
+            "start_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->start_production)->get(),
+            "end_production" => Pelaporan::whereUserId(Auth::user()->id)->whereStartProduction($request->end_production)->get(),
         ]);
+    }
+
+    public function selisih(Request $request)
+    {
+        $pelaporan_1 = Pelaporan::whereProductionDate($request->production_date_1)->whereUserId(Auth::user()->id)->first();
+        $pelaporan_2 = Pelaporan::whereProductionDate($request->production_date_2)->whereUserId(Auth::user()->id)->first();
+        $result = $pelaporan_1->end_production - $pelaporan_2->end_production;
+        return redirect()->back()->with("result", $result);
     }
 }
