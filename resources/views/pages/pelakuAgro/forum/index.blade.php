@@ -29,7 +29,7 @@
 
         <div class="button flex flex-col mt-10">
             <a href="{{ route("pelaku-agro.forum.create") }}"><button class="btn">Buat Topik</button></a>
-            <button class="btn mt-5">Topik Saya</button>
+            <button class="btn mt-5">Postingan Saya</button>
         </div>
     </div>
 @endsection

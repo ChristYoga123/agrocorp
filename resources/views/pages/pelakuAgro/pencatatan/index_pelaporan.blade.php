@@ -27,9 +27,6 @@
                             <a href="{{ route("pelaku-agro.pelaporan.show", $pelaporan->id) }}">
                                 <button class="btn bg-[#159895]">Lihat</button>
                             </a>
-                            <a href="#">
-                                <button class="btn bg-[#159895]">Hapus</button>
-                            </a>
                         </td>
                     </tr>
                 @endforeach

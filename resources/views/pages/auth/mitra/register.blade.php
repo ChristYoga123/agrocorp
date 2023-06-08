@@ -65,15 +65,13 @@
     </section> 
     @if (session("error"))
     <script>
-        Swal.fire("Gagal", `{{ session("error") }}`, "error");
+        Swal.fire("Gagal", 'Register Gagal', "error");
     </script>
     @elseif($errors->any())
     <script>
         Swal.fire(
             "Gagal",
-            `@foreach ($errors->all() as $error)
-                {{ $error }}
-            @endforeach`,
+            'Form Tidak Boleh Kosong!',
             "error"
         )
     </script>

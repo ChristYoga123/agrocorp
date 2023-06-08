@@ -59,7 +59,7 @@ class ProfileController extends Controller
                 ]);
             }
             DB::commit();
-            return redirect()->back()->with("success", "Data berhasil diubah");
+            return redirect()->route('pelaku-agro.index')->with("success", "Data berhasil diubah");
         } catch (Exception $e) {
             DB::rollBack();
             return redirect()->back()->with("error", $e->getMessage());

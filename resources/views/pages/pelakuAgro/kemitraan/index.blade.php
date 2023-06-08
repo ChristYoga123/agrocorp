@@ -11,7 +11,7 @@
         <a href="{{ route("pelaku-agro.surat_bermitra.index") }}">
             <div class="flex flex-col gap-4 w-[400px] h-[200px] bg-[#159895] rounded-xl justify-center items-center">
                 <img src="{{ asset("assets/img/surat.png") }}">
-                <h1 class="font-bold text-xl text-white">Surat Bermitra</h1>
+                <h1 class="font-bold text-xl text-white">Formulir Kemitraan</h1>
             </div>
         </a>
     </div>

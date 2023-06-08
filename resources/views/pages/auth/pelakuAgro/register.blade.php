@@ -71,9 +71,7 @@
     <script>
         Swal.fire(
             "Gagal",
-            `@foreach ($errors->all() as $error)
-                {{ $error }}
-            @endforeach`,
+            `Form Tidak Boleh Kosong!`,
             "error"
         )
     </script>

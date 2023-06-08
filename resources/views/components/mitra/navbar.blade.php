@@ -64,6 +64,13 @@
                         <p class="text-xl font-semibold my-auto">Pembayaran</p>
                     </a>
                 </li>
+
+                <li>
+                    <a href="" class="flex gap-5">
+                        <img src="{{ asset("assets/img/User.png") }}" alt="">
+                        <p class="text-xl font-semibold my-auto">Riwayat Transaksi</p>
+                    </a>
+                </li>
             </ul>
             <hr class="mt-4 mb-5 border-t-8 border-[#626262]" >
             <form action="{{ route("mitra.logout") }}" method="POST" class="hover:cursor-pointer">

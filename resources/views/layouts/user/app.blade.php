@@ -39,9 +39,7 @@
         <script>
             Swal.fire(
                 "Gagal",
-                `@foreach ($errors->all() as $error)
-                    {{ $error }}
-                @endforeach`,
+                `Data Tidak Boleh Kosong!`,
                 "error"
             )
         </script>
