@@ -31,6 +31,9 @@ class PremiumController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            "premium_transaction_proof" => "required"
+        ]);
         $transaction_proof = $request->file("premium_transaction_proof")->store("bukti-pembayaran-premium", "public");
         PremiumTransaction::create([
             "user_id" => Auth::user()->id,
@@ -47,6 +50,11 @@ class PremiumController extends Controller
 
     public function store_premium(Request $request)
     {
+        $request->validate([
+            "product_name" => "required",
+            "quantity" => "required",
+            "price_request" => "required"
+        ]);
         PremiumCooperate::create([
             "mitra_id" => Auth::user()->id,
             "product_name" => $request->product_name,
@@ -55,5 +63,11 @@ class PremiumController extends Controller
         ]);
 
         return redirect()->route("mitra.premium.permintaan.index")->with("success", "Data berhasil disimpan");
+    }
+
+    public function destroy(PremiumCooperate $premiumCooperate)
+    {
+        $premiumCooperate->delete();
+        return redirect()->back()->with("success", "Data berhasil dihapus");
     }
 }

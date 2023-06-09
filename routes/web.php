@@ -18,6 +18,7 @@ use App\Http\Controllers\Mitra\KemitraanController as MitraKemitraanController;
 use App\Http\Controllers\Mitra\PembayaranController;
 use App\Http\Controllers\Mitra\PremiumController;
 use App\Http\Controllers\Mitra\ProfileController as MitraProfileController;
+use App\Http\Controllers\Mitra\RiwayatTransaksiController as MitraRiwayatTransaksiController;
 use App\Http\Controllers\Mitra\StatusPengajuanController;
 use App\Http\Controllers\PelakuAgro\HomeController as PelakuAgroHomeController;
 use App\Http\Controllers\PelakuAgro\AuthController as PelakuAgroAuthController;
@@ -105,6 +106,7 @@ Route::prefix("pelaku-agro")->name("pelaku-agro.")->group(function () {
     // Forum
     Route::resource("forum", ForumController::class);
     Route::post("forum/comment/{forum}", [ForumController::class, "store_comment"])->name("forum.comment.store");
+    Route::get("forum/postingan-saya", [ForumController::class, "index_my_forum"])->name("forum.my-forum.index");
 });
 
 // Mitra
@@ -150,6 +152,11 @@ Route::prefix("mitra")->name("mitra.")->group(function () {
     Route::post("premium/permintaan/bayar", [PremiumController::class, "store"])->name("premium.permintaan.bayar.store");
     Route::get("premium/permintaan/tambah", [PremiumController::class, "create"])->name("premium.permintaan.create");
     Route::post("premium/permintaan/tambah", [PremiumController::class, "store_premium"])->name("premium.permintaan.store");
+    Route::delete("premium/permintaan/{premiumCooperate}", [PremiumController::class, "destroy"])->name("premium.permintaan.delete");
+
+    // Riwayat Transaksi
+    Route::get("riwayat-transaksi", [MitraRiwayatTransaksiController::class, "index"])->name("riwayat-transaksi.index");
+    Route::get("riwayat-transaksi/{cooperate}", [MitraRiwayatTransaksiController::class, "show"])->name("riwayat-transaksi.show");
 });
 // Admin
 Route::prefix("admin")->name('admin.')->group(function () {
@@ -179,7 +186,7 @@ Route::prefix("admin")->name('admin.')->group(function () {
     // Forum
     Route::get("forum", [AdminForumController::class, "index"])->name("forum.index");
     Route::get("forum/{forum}", [AdminForumController::class, "show"])->name("forum.show");
-    Route::delete("forum-comment/{forumComment}", [AdminForumController::class, "destroy"])->name("forum.destroy");
+    Route::delete("forum-comment/{forum}", [AdminForumController::class, "destroy"])->name("forum.destroy");
 
     // Riwayat Transaksi
     Route::get("riwayat-transaksi", [AdminRiwayatTransaksiController::class, "index"])->name("riwayat.index");

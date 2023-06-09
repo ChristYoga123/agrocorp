@@ -23,9 +23,10 @@ class ForumController extends Controller
         ]);
     }
 
-    public function destroy(ForumComment $forumComment)
+    public function destroy(Forum $forum)
     {
-        $forumComment->delete();
-        return redirect()->back()->with("success", "Komentar berhasil dihapus");
+        ForumComment::whereForumId($forum->id)->delete();
+        Forum::find($forum->id)->delete();
+        return redirect()->back()->with("success", "Forum berhasil dihapus");
     }
 }

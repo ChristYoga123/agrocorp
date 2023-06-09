@@ -26,7 +26,7 @@
                         <td>{{ $mitra->business_name }}</td>
                         <td>
                             <a href="{{ route("admin.mitra.show", $mitra->id) }}">
-                                <button class="btn bg-[#159895]">Lihat</button>
+                                <button class="btn bg-[#159895]">Detail</button>
                             </a>
                         </td>
                     </tr>

@@ -31,10 +31,15 @@
                                 <td>{{ $premium_cooperate->cooperate_status }}</td>
                                 <td>
                                     @if ($premium_cooperate->cooperate_status == "Belum Disetujui")
-                                        Belum ada Kerja Sama                                
+                                        <button class="btn bg-[#159895]">Belum ada Kerja Sama</button>                                 
                                     @else
                                         <button class="btn bg-[#159895]">Lihat</button>    
                                     @endif
+                                    <form action="{{ route("mitra.premium.permintaan.delete", $premium_cooperate->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-error">Hapus</button>    
+                                    </form>
                                 <td>
                             </tr>
                         @endforeach

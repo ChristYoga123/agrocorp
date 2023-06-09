@@ -1,15 +1,14 @@
 @extends('layouts.user.app')
 
 @section('content')
-    <div class="ml-96 pt-10">
-        <p class="text-4xl font-medium">AKUN PELAKU AGRO</p>
-        <div class="overflow-x-auto mt-32">
+    <div class="flex w-full h-[100vh] justify-center items-center">
+        <div class="overflow-x-auto">
             <table class="table w-full">
                 <!-- head -->
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Mitra</th>
+                    <th>Nama Pelaku Agro</th>
                     <th>Kebutuhan</th>
                     <th>Detail</th>
                 </tr>
@@ -19,14 +18,14 @@
                 @php
                     $i= 1;
                 @endphp
-                @foreach ($pengajuans as $pengajuan)
+                @foreach ($kerja_samas as $kerja_sama)
                     <tr>
                         <th>{{ $i++ }}</th>
-                        <td>{{ $pengajuan->Mitra->name }}</td>
-                        <td>{{ $pengajuan->cooperate_needs }}</td>
+                        <td>{{ $kerja_sama->PelakuAgro->name }}</td>
+                        <td>{{ $kerja_sama->cooperate_needs }}</td>
                         <td>
-                            <a href="{{ route("admin.pengajuan.show", $pengajuan->id) }}">
-                                <button class="btn bg-[#159895]">Detail</button>
+                            <a href="{{ route("mitra.riwayat-transaksi.show", $kerja_sama->id) }}">
+                                <button class="btn bg-[#159895]">Lihat</button>
                             </a>
                         </td>
                     </tr>

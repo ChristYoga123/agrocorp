@@ -26,7 +26,7 @@
                         <td>{{ $transaction->User->business_name }}</td>
                         <td>
                             <a href="{{ route("admin.premium.show", $transaction->id) }}">
-                                <button class="btn bg-[#159895]">Lihat</button>
+                                <button class="btn bg-[#159895]">Detail</button>
                             </a>
                         </td>
                     </tr>

@@ -33,6 +33,11 @@ class ForumController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "title" => "required",
+            "forum_image" => "required",
+            "forum_text" => "required"
+        ]);
         $data = $request->all();
         $data["forum_image"] = $request->file("forum_image")->store("forum", "public");
         $data["user_id"] = Auth::user()->id;
@@ -85,5 +90,12 @@ class ForumController extends Controller
         ForumComment::create($data);
 
         return redirect()->back();
+    }
+
+    public function index_my_forum()
+    {
+        return view("pages.pelakuAgro.forum.index_my_forum")->with([
+            "forums" => Forum::whereUserId(Auth::user()->id)
+        ]);
     }
 }

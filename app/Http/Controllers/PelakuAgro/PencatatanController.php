@@ -28,6 +28,11 @@ class PencatatanController extends Controller
 
     public function store_pelaporan(Request $request)
     {
+        $request->validate([
+            "production_date" => "required",
+            "start_production_date" => "required",
+            "end_production_date" => "required",
+        ]);
         $data = $request->all();
         $data["user_id"] = Auth::user()->id;
         Pelaporan::create($data);

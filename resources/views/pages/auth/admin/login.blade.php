@@ -42,13 +42,13 @@
             </div>
         </div>
     </div>
-    @if (session("success"))
+    @if ($errors->any())
         <script>
-            Swal.fire("Sukses", `{{ session("success") }}`, "success");
+            Swal.fire("Gagal", `Data tidak boleh kosong`, "error");
         </script>
     @elseif(session("error"))
         <script>
-            Swal.fire("Gagal", `{{ session("error") }}`, "error");
+            Swal.fire("Gagal", `Email salah atau password salah`, "error");
         </script>
     @endif
 </body>
